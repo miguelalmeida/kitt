@@ -1,0 +1,8 @@
+{
+  "name": "KITT",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "0ff02423"
+}
