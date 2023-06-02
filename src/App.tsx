@@ -45,7 +45,7 @@ const App: React.FC = () => {
               <Page />
             </Route>
             <Route path="/settings" exact={true}>
-              <Settings />
+              <Settings />            
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>

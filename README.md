@@ -83,3 +83,37 @@ There is a custom.css file to include custom css global settings. Use with cauti
 
 ## Raspberry Pi Touch Screen
 There is a file named rpi.css. This file is included under the APP.tsx file. When included it will add styling optimizations for the RPI specifically. It should take into account the @media.
+
+
+# Electron APP setup
+
+## Installation into an existing Capacitor application.
+
+1. Build your webapp in your capacitor initiated project: npm run build.
+2. Run npm i @capacitor-community/electron in your webapp project directory. This will install the platform for use with the @capacitor/cli.
+3. Run npx cap add @capacitor-community/electron to initiate the platform, this will create the electron folder in your webapp project.
+4. Run npx cap open @capacitor-community/electron to start your app in electron.
+
+Note: You can use other npx cap commands with the platform by: npx cap <command> @capacitor-community/electron
+
+## Packaging
+
+### Setting up Packaging
+1. Go to the electron folder 
+2. npm install --save-dev @electron-forge/cli
+3. npx electron-forge import
+4. brew install fakeroot dpkg rpm (required to be able to create a linux package in macos )
+
+### Actual packaging
+
+Everytime you want to package a new app just make sure you build it first under ionic and then go to the electron folder to run:
+
+1. ionic build
+2. cd electron
+3. cp -r ../build/* ./app/
+4. MAKE:
+ * Macos: npm run make
+ * Linux: npm run make -- --platform=linux
+
+After that go to the the "out" directory and into the "make" folder. In there you should have the installer .deb file that needs to be transfered into the RPI for installation.
+
