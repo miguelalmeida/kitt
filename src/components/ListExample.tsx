@@ -1,21 +1,24 @@
 import { IonItem, IonLabel, IonList } from '@ionic/react'
 import React from 'react'
+import "./ListExample.css"
+import { TableCard } from './TableCard';
 
-interface ListExampleProps {
+export interface ListCardProps {
+    name: string;
     numItems: number;
 }
 
-export const ListExample: React.FC<ListExampleProps> = ({ numItems }) => {
+export const ListCard: React.FC<ListCardProps> = ({ numItems, name }) => {
     const list = Array.from({ length: numItems }, (_, i) => i + 1)
 
     return (
-        <IonList>
-            {list.map((v, index) => <IonItem key={index} style={{ "--inner-padding-end": 0 }} lines={index === numItems - 1 ? "none" : "inset"}>
-                <IonLabel >C{index + 1}</IonLabel>
-                <IonLabel slot="end">{v}</IonLabel>
-            </IonItem>)}
-
-
-        </IonList>
+        <TableCard name={name} >
+            <IonList style={{ marginTop: -15, maxHeight: 210, overflowY: "auto" }} class="rpi-list" >
+                {list.map((v, index) => <IonItem key={index} lines={index === numItems - 1 ? "none" : "inset"} className="rpi-item">
+                    <IonLabel class="no-ion-margin">VAL {index + 1}</IonLabel>
+                    <IonLabel class="no-ion-margin" slot="end">{v}</IonLabel>
+                </IonItem>)}
+            </IonList>
+        </TableCard>
     )
 }

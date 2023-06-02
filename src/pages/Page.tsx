@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonText, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
+import DashboardContainer from '../components/DashboardContainer';
 import './Page.css';
 
 const Page: React.FC = () => {
@@ -11,20 +11,20 @@ const Page: React.FC = () => {
   return (
     <IonPage>
       <IonHeader >
-        <IonToolbar color="white">
+        <IonToolbar color="light" style={{border: "none"}}>
           <IonText color="medium">HEVO 01</IonText>
           <IonButtons slot="start">
             <IonMenuButton color="dark"/>
           </IonButtons>
           
           <IonButtons slot='end'>
-              <IonToggle checked={true}></IonToggle>
+              <IonToggle mode="ios" checked={true} style={{marginRight: 20}}></IonToggle>
             </IonButtons>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen>        
-        <ExploreContainer name={name} />
+      <IonContent color="light">        
+        <DashboardContainer name={name} />
       </IonContent>
     </IonPage>
   );

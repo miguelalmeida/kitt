@@ -1,5 +1,6 @@
-import { IonCard, IonCardContent, IonCardHeader } from '@ionic/react'
-import React from 'react'
+import { IonCard, IonCardContent, IonCardHeader } from '@ionic/react';
+import React from 'react';
+import "./DashboardContainer.css";
 
 interface TableCardProps {
     name: string;
@@ -8,7 +9,7 @@ interface TableCardProps {
 
 export const TableCard: React.FC<TableCardProps> = ({name, children}) => {
     return (
-        <IonCard>
+        <IonCard className="custom-card" mode="ios">
             <IonCardHeader>{name}</IonCardHeader>
             <IonCardContent>
                 {children}
