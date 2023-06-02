@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonText, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './Page.css';
@@ -10,21 +10,20 @@ const Page: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
+      <IonHeader >
+        <IonToolbar color="white">
+          <IonText color="medium">HEVO 01</IonText>
           <IonButtons slot="start">
-            <IonMenuButton />
+            <IonMenuButton color="dark"/>
           </IonButtons>
-          <IonTitle>{name}</IonTitle>
+          
+          <IonButtons slot='end'>
+              <IonToggle checked={true}></IonToggle>
+            </IonButtons>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+      <IonContent fullscreen>        
         <ExploreContainer name={name} />
       </IonContent>
     </IonPage>
