@@ -2,6 +2,7 @@ import { IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIc
 import React, { useState } from 'react';
 import "./DashboardContainer.css";
 import { arrowBack } from 'ionicons/icons';
+import { KeyboardModal } from './KeyboardModal';
 
 export interface ClickableCardProps {
     name: string;
@@ -31,6 +32,10 @@ export const ClickableCard: React.FC<ClickableCardProps> = ({ name, value, units
             <IonButton slot="end">
                 <IonButton><IonIcon icon={arrowBack} /></IonButton>
             </IonButton>
+
+            {keyboardOpen && (
+                <KeyboardModal isOpen={keyboardOpen} name={name} resultCallback={modalCallback} />
+            )}
 
         </IonCard>
     )
