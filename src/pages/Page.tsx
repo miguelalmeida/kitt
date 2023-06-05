@@ -10,20 +10,20 @@ const Page: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader >
-        <IonToolbar color="light" style={{border: "none"}}>
+      <IonHeader class="ion-no-border">
+        <IonToolbar color="light" >
           <IonText color="medium">HEVO 01</IonText>
           <IonButtons slot="start">
-            <IonMenuButton color="dark"/>
+            <IonMenuButton color="dark" />
           </IonButtons>
-          
+
           <IonButtons slot='end'>
-              <IonToggle mode="ios" checked={true} style={{marginRight: 20}}></IonToggle>
-            </IonButtons>
+            <IonToggle mode="ios" checked={true} style={{ marginRight: 20 }}></IonToggle>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent color="light">        
+      <IonContent color="light">
         <DashboardContainer name={name} />
       </IonContent>
     </IonPage>

@@ -29,7 +29,7 @@ export const ClickableCard: React.FC<ClickableCardProps> = ({ name, value, units
             </IonCardHeader>
 
             <IonButton slot="end">
-                <IonButton><IonIcon icon={arrowBack} /></IonButton>                
+                <IonButton><IonIcon icon={arrowBack} /></IonButton>
             </IonButton>
 
         </IonCard>

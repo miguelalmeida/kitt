@@ -23,7 +23,7 @@ const DashboardContainer: React.FC = () => {
 
   return (
     <>
-      <IonRow>
+      <IonRow style={{marginLeft: 10, marginRight: 10}}>
         <IonCol>
           <ClickableCard name={VALUE_CARD_DATA[0].name} value={VALUE_CARD_DATA[0].value} units={VALUE_CARD_DATA[0].units} />
         </IonCol>
@@ -46,7 +46,7 @@ const DashboardContainer: React.FC = () => {
           </IonRow>
         </IonCol>
 
-        <IonCol>
+        <IonCol class="ion-no-padding ion-no-margin">
           <IonRow>
             <IonCol><ListCard name={LIST_CARD_DATA[3].name} numItems={LIST_CARD_DATA[3].numItems} /></IonCol>
           </IonRow>
