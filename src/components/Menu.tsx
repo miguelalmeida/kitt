@@ -45,7 +45,6 @@ const appPages: AppPage[] = [
   }
 ];
 
-
 const Menu: React.FC = () => {
   const location = useLocation();
 
