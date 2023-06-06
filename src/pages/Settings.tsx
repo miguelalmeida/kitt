@@ -6,13 +6,14 @@ import PageContainer from './PageContainer';
 type SettingsItemProps = {
   label: string;
   detail: string;
+  isLast?: boolean;
 }
 const Settings: React.FC = () => {
   const settingsItems: SettingsItemProps[] = [
     { label: "Equipment name", detail: "HMI 01" },
     { label: "Network Configurations", detail: "Active" },
     { label: "Locations Settings", detail: "PT" },
-    { label: "Touch Screen", detail: "Active" }
+    { label: "Touch Screen", detail: "Active", isLast: true }
   ]
 
   return (
@@ -20,7 +21,7 @@ const Settings: React.FC = () => {
       <IonRow class="ion-padding">
         <IonCol>
           <IonList class="round-edges">
-            {settingsItems.map((setting: SettingsItemProps, index: number) => <SettingsItem key={index} label={setting.label} detail={setting.detail} />)}
+            {settingsItems.map((setting: SettingsItemProps, index: number) => <SettingsItem key={index} label={setting.label} detail={setting.detail} isLast={setting.isLast} />)}
           </IonList>
         </IonCol>
       </IonRow>
@@ -32,9 +33,9 @@ const Settings: React.FC = () => {
 
 export default Settings;
 
-const SettingsItem: React.FC<SettingsItemProps> = ({ label, detail }) => {
+const SettingsItem: React.FC<SettingsItemProps> = ({ label, detail, isLast }) => {
   return (
-    <IonItem button lines="none" detail={true} >
+    <IonItem button lines={isLast ? "none" : "inset"} detail={true} >
       <IonLabel>{label}</IonLabel>
       <IonLabel slot="end" color="medium">{detail}</IonLabel>
     </IonItem >

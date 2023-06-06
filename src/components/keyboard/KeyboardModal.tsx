@@ -7,16 +7,16 @@ import "./KeyboardModal.css";
 interface KeyboardModalProps {
     isOpen: boolean;
     name?: string;
-    resultCallback(val?: number): any;
+    resultCallback(val?: number): void;
 }
 
 export const KeyboardModal: React.FC<KeyboardModalProps> = ({ isOpen, name, resultCallback }) => {
     const modal = useRef<HTMLIonModalElement>(null);
     const [input, setInput] = useState<number>();
 
-    const onChange = (val: any) => setInput(val);
+    const onChange = (val: string) => setInput(Number(val));
 
-    const onKeyPress = (button: any) => button === "{enter}" && resultCallback(input);
+    const onKeyPress = (button: string) => button === "{enter}" && resultCallback(input);
 
     const layout = { default: ["1 2 3", "4 5 6", "7 8 9", "{bksp} 0 . {enter}"] };
     const display = { "{bksp}": "<", "{enter}": "enter" };
@@ -50,11 +50,3 @@ export const KeyboardModal: React.FC<KeyboardModalProps> = ({ isOpen, name, resu
         </IonModal>
     )
 }
-function setInput(input: any) {
-    throw new Error('Function not implemented.');
-}
-
-function setKeyboardOpen(arg0: boolean) {
-    throw new Error('Function not implemented.');
-}
-

@@ -1,6 +1,6 @@
 /* Custom styles for the Raspberry Pi touch screen with 800 x 460px */
 
-@media (max-height: 460px) {
+@media (max-height: 480px) {
     .rpi-item {
         margin: 0 !important;
         --inner-padding-end: 0;

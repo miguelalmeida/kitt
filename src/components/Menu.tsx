@@ -1,7 +1,8 @@
 import {
+  IonAvatar,
   IonContent,
-  IonFooter,
   IonIcon,
+  IonImg,
   IonItem,
   IonLabel,
   IonList,
@@ -12,7 +13,7 @@ import {
 } from '@ionic/react';
 import React from 'react';
 
-import { carOutline, carSportOutline, homeOutline, notificationsOutline, settingsOutline, settingsSharp, speedometerOutline } from 'ionicons/icons';
+import { carSportOutline, homeOutline, notificationsOutline, settingsOutline, speedometerOutline } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
 import './Menu.css';
 
@@ -55,7 +56,10 @@ const Menu: React.FC = () => {
       <IonContent style={{height: "100%"}}>
 
         <IonList id="inbox-list">
-          <IonListHeader>KITT</IonListHeader>
+          <IonListHeader>
+          <IonImg alt="logo" class="app-logo" src="assets/logo-color.png" />
+
+          </IonListHeader>
           <IonNote></IonNote>
           {appPages.map((appPage, index) => {
             return (

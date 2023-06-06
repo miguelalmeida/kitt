@@ -4,7 +4,7 @@ import './Page.css';
 
 interface PageContainerProps {
     name: string;
-    children: any;
+    children: React.ReactNode;
 }
 
 const PageContainer: React.FC<PageContainerProps> = ({ name, children }) => {
