@@ -2,7 +2,8 @@ import { IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIc
 import React, { useState } from 'react';
 import "./DashboardContainer.css";
 import { arrowBack } from 'ionicons/icons';
-import { KeyboardModal } from './KeyboardModal';
+
+import { KeyboardModal } from './keyboard/KeyboardModal';
 
 export interface ClickableCardProps {
     name: string;

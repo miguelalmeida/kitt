@@ -1,10 +1,4 @@
-.rpi-item {    
-    margin: 0!important;    
-    --inner-padding-end: 0;
-    --min-height: auto;
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+display: none;
 }
-
-ion-item ion-label {
-    margin-bottom: 0;
-  }
-  

@@ -1,8 +1,6 @@
-import React from 'react';
 import {
-  IonButtons,
   IonContent,
-  IonHeader,
+  IonFooter,
   IonIcon,
   IonItem,
   IonLabel,
@@ -10,29 +8,40 @@ import {
   IonListHeader,
   IonMenu,
   IonMenuToggle,
-  IonNote,
-  IonTitle,
-  IonToggle,
-  IonToolbar,
+  IonNote
 } from '@ionic/react';
+import React from 'react';
 
+import { carOutline, carSportOutline, homeOutline, notificationsOutline, settingsOutline, settingsSharp, speedometerOutline } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, settingsOutline, settingsSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
   url: string;
-  iosIcon: string;
-  mdIcon: string;
+  icon: string;
   title: string;
 }
 
 const appPages: AppPage[] = [
   {
-    title: 'Settings',
+    title: 'Home',
     url: '/page/Home',
-    iosIcon: settingsOutline,
-    mdIcon: settingsSharp
+    icon: homeOutline
+  },
+  {
+    title: 'Dashboard',
+    url: '/page/Dashboard',
+    icon: speedometerOutline
+  },
+  {
+    title: 'Drive',
+    url: '/page/Drive',
+    icon: carSportOutline
+  },
+  {
+    title: 'Notifications',
+    url: '/page/notifications',
+    icon: notificationsOutline
   }
 ];
 
@@ -42,26 +51,37 @@ const Menu: React.FC = () => {
   const location = useLocation();
 
   return (
-    <IonMenu contentId="main" type="overlay" side="start">
-      <IonContent>
-        
+    <IonMenu contentId="main" type="overlay" side="start" >
+      <IonContent style={{height: "100%"}}>
+
         <IonList id="inbox-list">
-          <IonListHeader>Home</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonListHeader>KITT</IonListHeader>
+          <IonNote></IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false} >
                 <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonIcon aria-hidden="true" slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
+                  <IonIcon aria-hidden="true" slot="start" icon={appPage.icon} size="large" />
                   <IonLabel>{appPage.title}</IonLabel>
                 </IonItem>
+
               </IonMenuToggle>
             );
+
           })}
         </IonList>
 
+        <IonMenuToggle key={"settings"} autoHide={false} class="settings-btn">
+          <IonItem lines="none" detail={false} routerLink={'/settings'} routerDirection="none" className={location.pathname === "/settings" ? 'selected' : ''} >
+            <IonIcon aria-hidden="true" slot="start" icon={settingsOutline} size="large" />
+            <IonLabel>Settings</IonLabel>
+          </IonItem>
+        </IonMenuToggle>
+
 
       </IonContent>
+
+
     </IonMenu>
   );
 };

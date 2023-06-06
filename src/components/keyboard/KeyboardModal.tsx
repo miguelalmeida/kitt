@@ -4,7 +4,6 @@ import Keyboard from 'react-simple-keyboard';
 import 'simple-keyboard/build/css/index.css';
 import "./KeyboardModal.css";
 
-
 interface KeyboardModalProps {
     isOpen: boolean;
     name?: string;
@@ -21,7 +20,7 @@ export const KeyboardModal: React.FC<KeyboardModalProps> = ({ isOpen, name, resu
 
     const layout = { default: ["1 2 3", "4 5 6", "7 8 9", "{bksp} 0 . {enter}"] };
     const display = { "{bksp}": "<", "{enter}": "enter" };
-
+    
     const dismiss = () => modal.current?.dismiss();
 
     return (
@@ -42,6 +41,7 @@ export const KeyboardModal: React.FC<KeyboardModalProps> = ({ isOpen, name, resu
                         onKeyPress={onKeyPress}
                         layout={layout}
                         display={display}
+                        
                     />
                 </IonCol>
 
