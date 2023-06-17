@@ -4,9 +4,10 @@ import { ClickableCard, ClickableCardProps } from './ClickableCard';
 import '././DashboardContainer.css';
 import { ListCard, ListCardProps } from './ListExample';
 
+
 const VALUE_CARD_DATA: ClickableCardProps[] = [
-  { name: "Card Value 1", value: "1.2341", units: "m/2" },
-  { name: "Card Value 2", value: "1.5341", units: "m/2" }
+  { name: "Card Value 1", value: "1.2341", units: "m/2", topic: "value_1_topic" },
+  { name: "Card Value 2", value: "1.5341", units: "m/2", topic: "value_2_topic" }
 ];
 
 const LIST_CARD_DATA: ListCardProps[] = [
@@ -25,10 +26,11 @@ const DashboardContainer: React.FC = () => {
       <IonRow style={{ marginLeft: 10, marginRight: 10 }}>
         {VALUE_CARD_DATA.map((data: ClickableCardProps, index: number) =>
           <IonCol key={index}>
-            <ClickableCard
+            <ClickableCard              
               name={data.name}
               value={data.value}
               units={data.units}
+              topic={data.topic}
             />
           </IonCol>
         )}

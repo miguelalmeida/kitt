@@ -1,20 +1,34 @@
-import { IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon, IonText } from '@ionic/react';
-import React, { useState } from 'react';
-import "./DashboardContainer.css";
+import { IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon, IonText, useIonViewWillLeave } from '@ionic/react';
 import { arrowBack } from 'ionicons/icons';
-
+import React, { useEffect, useState } from 'react';
+import mqttInstance from '../api/Mqtt';
+import "./DashboardContainer.css";
 import { KeyboardModal } from './keyboard/KeyboardModal';
 
 export interface ClickableCardProps {
     name: string;
+    topic: string;
     value: string;
     units: string
 }
 
-export const ClickableCard: React.FC<ClickableCardProps> = ({ name, value, units }) => {
+export const ClickableCard: React.FC<ClickableCardProps> = ({ name, value, units, topic }) => {
     const [input, setInput] = useState(value);
     const [keyboardOpen, setKeyboardOpen] = useState<boolean>(false);
-    console.log(keyboardOpen)
+
+    useEffect(() => {
+        mqttInstance.subscribe(topic, function (err) {
+            err ? console.log(err) : console.log("Subscribed to topic: ", topic);
+        })
+
+        mqttInstance.on('message', function (topic, message) {
+            setInput(message.toString())
+        })
+    }, [name])
+
+    useIonViewWillLeave(() => {
+        mqttInstance.unsubscribe(topic);
+    });
 
     const modalCallback = (val?: number) => {
         setKeyboardOpen(false);
@@ -41,3 +55,7 @@ export const ClickableCard: React.FC<ClickableCardProps> = ({ name, value, units
         </IonCard>
     )
 }
+function ionViewWillLeave() {
+    throw new Error('Function not implemented.');
+}
+

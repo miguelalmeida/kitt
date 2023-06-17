@@ -83,3 +83,7 @@ There is a custom.css file to include custom css global settings. Use with cauti
 
 ## Raspberry Pi Touch Screen
 There is a file named rpi.css. This file is included under the APP.tsx file. When included it will add styling optimizations for the RPI specifically. It should take into account the @media.
+
+# Connecting to a MQTT broker
+
+To connect to a MQQT Broker, replace the address in the MQTT file under the API folder.

@@ -21,6 +21,8 @@
     "@types/react-router-dom": "^5.1.7",
     "history": "^4.9.0",
     "ionicons": "^7.0.0",
+    "mqtt": "^4.3.7",
+    "precompiled-mqtt": "^4.3.14-beta",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^5.2.0",
