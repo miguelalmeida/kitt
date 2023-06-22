@@ -1,5 +1,7 @@
-# Webapp Setup 
+# KITT - IONIC for RPI Touch Experiment
+Experimenting with ionic to develop a simple frontend to be used with a Raspberry Pi along side  WEB and Mobile APPs.
 
+# Webapp Setup 
 
 ## Configuring the environment
 Install ionic:
