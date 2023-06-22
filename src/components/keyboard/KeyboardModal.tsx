@@ -20,7 +20,7 @@ export const KeyboardModal: React.FC<KeyboardModalProps> = ({ isOpen, name, resu
 
     const layout = { default: ["1 2 3", "4 5 6", "7 8 9", "{bksp} 0 . {enter}"] };
     const display = { "{bksp}": "<", "{enter}": "enter" };
-    
+
     const dismiss = () => modal.current?.dismiss();
 
     return (
@@ -37,16 +37,14 @@ export const KeyboardModal: React.FC<KeyboardModalProps> = ({ isOpen, name, resu
             <IonRow>
                 <IonCol>
                     <Keyboard
+                    
                         onChange={onChange}
                         onKeyPress={onKeyPress}
                         layout={layout}
                         display={display}
-                        
                     />
                 </IonCol>
-
             </IonRow>
-
         </IonModal>
     )
 }

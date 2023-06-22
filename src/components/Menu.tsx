@@ -1,5 +1,4 @@
 import {
-  IonAvatar,
   IonContent,
   IonIcon,
   IonImg,
@@ -45,7 +44,6 @@ const appPages: AppPage[] = [
     icon: notificationsOutline
   }
 ];
-
 
 
 const Menu: React.FC = () => {

@@ -3,7 +3,6 @@ import React from 'react';
 import { ClickableCard, ClickableCardProps } from './ClickableCard';
 import '././DashboardContainer.css';
 import { ListCard, ListCardProps } from './ListExample';
-import { TableCard } from './TableCard';
 
 const VALUE_CARD_DATA: ClickableCardProps[] = [
   { name: "Card Value 1", value: "1.2341", units: "m/2" },
@@ -17,21 +16,22 @@ const LIST_CARD_DATA: ListCardProps[] = [
   { name: "Table Value 4", numItems: 2 },
   { name: "Table Value 5", numItems: 2 },
   { name: "Table Value 6", numItems: 2 },
+  { name: "Table Value 6", numItems: 2 },
 ]
 
 const DashboardContainer: React.FC = () => {
-
   return (
     <>
       <IonRow style={{ marginLeft: 10, marginRight: 10 }}>
-        <IonCol>
-          <ClickableCard name={VALUE_CARD_DATA[0].name} value={VALUE_CARD_DATA[0].value} units={VALUE_CARD_DATA[0].units} />
-        </IonCol>
-
-        <IonCol>
-          <ClickableCard name={VALUE_CARD_DATA[1].name} value={VALUE_CARD_DATA[1].value} units={VALUE_CARD_DATA[1].units} />
-        </IonCol>
-
+        {VALUE_CARD_DATA.map((data: ClickableCardProps, index: number) =>
+          <IonCol key={index}>
+            <ClickableCard
+              name={data.name}
+              value={data.value}
+              units={data.units}
+            />
+          </IonCol>
+        )}
       </IonRow>
 
       <IonRow style={{ marginLeft: 10, marginRight: 10 }}>
