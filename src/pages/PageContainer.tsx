@@ -12,7 +12,7 @@ const PageContainer: React.FC<PageContainerProps> = ({ name, children }) => {
         <IonPage>
             <IonHeader class="ion-no-border">
                 <IonToolbar color="light" >
-                    <IonText color="medium" class="ion-text-uppercase">{name}</IonText>
+                    <IonText color="medium" class="ion-text-uppercase page-name">{name}</IonText>
                     <IonButtons slot="start">
                         <IonMenuButton color="dark" />
                     </IonButtons>
